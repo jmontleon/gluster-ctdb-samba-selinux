@@ -4,7 +4,7 @@
 %define modulename gluster-ctdb-samba
 
 Name:           %{modulename}-selinux
-Version:        1.0.0
+Version:        1.0.1
 Release:        1
 Summary:        SELinux policy module for a custom gluster, ctdb, and samba setup
 
