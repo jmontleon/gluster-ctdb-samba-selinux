@@ -26,4 +26,5 @@ allow smbd_t fusefs_t:sock_file { create unlink write };
 allow ifconfig_t fusefs_t:file read;
 
 #============= init_t ==============
+allow init_t fusefs_t:file read;
 allow init_t fusefs_t:lnk_file read;
