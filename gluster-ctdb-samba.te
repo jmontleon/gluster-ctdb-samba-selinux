@@ -1,0 +1,29 @@
+module gluster-ctdb-samba 1.0;
+
+require {
+	type init_t;
+	type fusefs_t;
+	type unconfined_t;
+	type ifconfig_t;
+	type smbd_t;
+	type ctdbd_t;
+	type ctdbd_var_lib_t;
+	class lnk_file read;
+	class dir getattr;
+	class file { map read };
+	class sock_file { create unlink write };
+}
+
+#============= ctdbd_t ==============
+allow ctdbd_t unconfined_t:dir getattr;
+
+#============= smbd_t ==============
+allow smbd_t ctdbd_var_lib_t:file map;
+allow smbd_t fusefs_t:sock_file { create unlink write };
+
+#============= wsdd below ==============
+#============= ifconfig_t ==============
+allow ifconfig_t fusefs_t:file read;
+
+#============= init_t ==============
+allow init_t fusefs_t:lnk_file read;
