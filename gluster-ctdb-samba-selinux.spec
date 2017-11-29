@@ -5,7 +5,7 @@
 
 Name:           %{modulename}-selinux
 Version:        1.0.1
-Release:        1
+Release:        2
 Summary:        SELinux policy module for a custom gluster, ctdb, and samba setup
 
 Group:          System Environment/Base

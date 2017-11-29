@@ -10,7 +10,7 @@ require {
 	type ctdbd_var_lib_t;
 	class lnk_file read;
 	class dir getattr;
-	class file { map read };
+	class file { map open read };
 	class sock_file { create unlink write };
 }
 
@@ -26,5 +26,5 @@ allow smbd_t fusefs_t:sock_file { create unlink write };
 allow ifconfig_t fusefs_t:file read;
 
 #============= init_t ==============
-allow init_t fusefs_t:file read;
+allow init_t fusefs_t:file { open read };
 allow init_t fusefs_t:lnk_file read;
